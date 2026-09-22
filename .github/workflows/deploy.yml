@@ -35,11 +35,13 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
+          project_id: ia-abrsep26
 
       - name: "Desplegando en Google Cloud"
         uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: funcion-anthony
           region: us-central1
+          project_id: ia-abrsep26
           source: .
           flags: "--allow-unauthenticated"
